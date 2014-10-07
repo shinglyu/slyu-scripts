@@ -1,0 +1,2 @@
+eval "$@";
+play -q ~/Music/alarm.ogg &
