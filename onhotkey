@@ -1,0 +1,36 @@
+#!/bin/bash
+xbindkeysrc='/tmp/xbindkeysrc'
+hotkey=F12
+
+last_run=$(date +%s)
+runcmd() {
+  this_run=$(date +%s)
+  time_waited=$((this_run - last_run))
+  if [ $time_waited -gt 1  ] #debounce for 1 second
+  then
+    echo "=====" $(date) "====="
+    $@
+    echo "======================================="
+    last_run=$this_run
+  fi
+
+}
+
+mainloop() {
+  key-mon -d 2>&1| \
+     while read line ; do
+       echo "$line" | grep -q "F12"
+       if [ $? = 0  ]
+       then
+         runcmd $@
+       fi
+     done
+}
+
+createXbindkeysrc() {
+  echo "\"echo hotkey\"" > $xbindkeysrc
+  echo "  $hotkey" >> $xbindkeysrc
+}
+
+createXbindkeysrc
+mainloop $@
