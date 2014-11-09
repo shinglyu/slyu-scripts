@@ -2,24 +2,24 @@
 xbindkeysrc='/tmp/xbindkeysrc'
 hotkey=F12
 
-last_run=$(date +%s)
+#last_run=$(date +%s)
 runcmd() {
-  this_run=$(date +%s)
-  time_waited=$((this_run - last_run))
-  if [ $time_waited -gt 1  ] #debounce for 1 second
-  then
+  #this_run=$(date +%s)
+  #time_waited=$((this_run - last_run))
+  #if [ $time_waited -gt 1  ] #debounce for 1 second
+  #then
     echo "=====" $(date) "====="
     $@
     echo "======================================="
-    last_run=$this_run
-  fi
+    #last_run=$this_run
+  #fi
 
 }
 
 mainloop() {
-  key-mon -d 2>&1| \
+  xbindkeys -n -f $xbindkeysrc| \
      while read line ; do
-       echo "$line" | grep -q "F12"
+       echo "$line" | grep -q "hotkey"
        if [ $? = 0  ]
        then
          runcmd $@
