@@ -1,6 +1,11 @@
 #!/bin/bash
-xbindkeysrc='/tmp/xbindkeysrc'
+# Run the command when a hotkey is pressed
+# Usage: onhotkey [your command]
+# 
+# Dependencies: xbindkeys
+
 hotkey=F12
+xbindkeysrc='/tmp/xbindkeysrc'
 
 #last_run=$(date +%s)
 runcmd() {
@@ -8,6 +13,7 @@ runcmd() {
   #time_waited=$((this_run - last_run))
   #if [ $time_waited -gt 1  ] #debounce for 1 second
   #then
+    echo ""
     echo "=====" $(date) "====="
     $@
     echo "======================================="
