@@ -1,0 +1,5 @@
+#!/bin/bash
+# Add the current path to zshrc
+SHELLRC="$HOME/.zshrc"
+echo "Appending to $SHELLRC"
+echo 'export PATH=$PATH:"'$(pwd)'"' |tee -a $SHELLRC
