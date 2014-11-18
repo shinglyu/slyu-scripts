@@ -4,7 +4,7 @@
 # 
 # Dependencies: xbindkeys
 
-hotkey=F12
+hotkey=F9
 xbindkeysrc='/tmp/xbindkeysrc'
 
 #last_run=$(date +%s)
