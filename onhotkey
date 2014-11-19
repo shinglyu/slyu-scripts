@@ -14,9 +14,10 @@ runcmd() {
   #if [ $time_waited -gt 1  ] #debounce for 1 second
   #then
     echo ""
-    echo "=====" $(date) "====="
-    $@
-    echo "======================================="
+    echo ">>>>>" $(date) ">>>>>"
+    #$@
+    ringring $@
+    echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     #last_run=$this_run
   #fi
 
