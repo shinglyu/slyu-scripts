@@ -1,2 +1,7 @@
+# Dependency: sox
 eval "$@";
+notify-send "_
+***********************************
+FINISHED: $@
+***********************************"
 play -q $HOME/slyu-scripts/notify.ogg &
