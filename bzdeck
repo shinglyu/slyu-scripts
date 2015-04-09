@@ -1,0 +1,10 @@
+#!/bin/bash
+#!/bin/bash
+fxbin="$HOME/workspace/firefox-nightly-36/firefox"
+profile="$HOME/.mozilla/firefox/l1b08ggz.bzdeck/"
+bzdeckurl='https://www.bzdeck.com'
+
+echo $bzdeckrul='https://www.bzdeck.com'
+echo $fxbin -Profile $profile --no-remote $bzdeckurl
+$fxbin -Profile $profile --no-remote $bzdeckurl
+
