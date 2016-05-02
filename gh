@@ -5,7 +5,7 @@
 
 BROWSER="firefox"
 
-if [ ! -d .git  ] 
+if [ ! $(git rev-parse --is-inside-work-tree) ]
 then
 
   $BROWSER "https://github.com"
@@ -15,19 +15,25 @@ else # If in a github repo
 
   CURR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
   ORIGIN_URL="$(git config --get remote.origin.url | sed 's/git@/https:\/\//g' | sed 's/com:/com\//g' | sed 's/.git$//g')"
-  BRANCH_URL="$ORIGIN_URL/tree/$CURR_BRANCH"
-  PR_URL="$ORIGIN_URL/compare/$CURR_BRANCH"
-  #echo $CURR_BRANCH
-  #echo $ORIGIN_URL
-  #echo $BRANCH_URL
+
   case "$1" in 
   pr) 
+    PR_URL="$ORIGIN_URL/compare/$CURR_BRANCH"
     $BROWSER $PR_URL
     echo $PR_URL
     ;;
   *) 
-    $BROWSER $BRANCH_URL
-    echo $BRANCH_URL
+    case "$ORIGIN_URL" in 
+    "")
+      $BROWSER "https://github.com/new"
+      echo "https://github.com/new"
+      ;;
+    *)
+      BRANCH_URL="$ORIGIN_URL/tree/$CURR_BRANCH"
+      $BROWSER $BRANCH_URL
+      echo $BRANCH_URL
+      ;;
+    esac
     ;;
   esac
 fi
