@@ -1,0 +1,33 @@
+#!/bin/bash
+# TODO:
+# Open current commit
+# Create github repo and set it as remote origin
+
+BROWSER="firefox"
+
+if [ ! -d .git  ] 
+then
+
+  $BROWSER "https://github.com"
+  echo "https://github.com"
+
+else # If in a github repo
+
+  CURR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  ORIGIN_URL="$(git config --get remote.origin.url | sed 's/git@/https:\/\//g' | sed 's/com:/com\//g' | sed 's/.git$//g')"
+  BRANCH_URL="$ORIGIN_URL/tree/$CURR_BRANCH"
+  PR_URL="$ORIGIN_URL/compare/$CURR_BRANCH"
+  #echo $CURR_BRANCH
+  #echo $ORIGIN_URL
+  #echo $BRANCH_URL
+  case "$1" in 
+  pr) 
+    $BROWSER $PR_URL
+    echo $PR_URL
+    ;;
+  *) 
+    $BROWSER $BRANCH_URL
+    echo $BRANCH_URL
+    ;;
+  esac
+fi
