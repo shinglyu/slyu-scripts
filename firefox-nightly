@@ -1,5 +1,10 @@
 #!/bin/bash
-fxbin="$HOME/workspace/firefox-nightly-36/firefox"
-profile="$HOME/.mozilla/firefox/vsus34mo.WebIDE"
+# How to setup:
+# * Download the nightly zip
+# * Extract it into ~/workspace/firefox-nightly/
+# * firefox --ProfileManager --no-remote, create a new profile
+# * Wirte down the profile path in the profile parameter
+fxbin="$HOME/firefox-nightly/firefox"
+profile="$HOME/.mozilla/firefox/eq7adpzs.nightly"
 $fxbin -Profile $profile --no-remote
 

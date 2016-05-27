@@ -6,4 +6,4 @@ xrandr --output HDMI1 --auto --right-of eDP1 --primary --rotate left
 #sleep 5s
 i3-msg restart
 sleep 1s
-#~/slyu-scripts/startSynergyClient.sh
+~/slyu-scripts/startSynergyClient.sh

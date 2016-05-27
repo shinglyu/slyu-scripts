@@ -1,7 +1,7 @@
 #!/bin/bash
 #!/bin/bash
-fxbin="$HOME/workspace/firefox-nightly-36/firefox"
-profile="$HOME/.mozilla/firefox/l1b08ggz.bzdeck/"
+fxbin="$HOME/firefox-nightly/firefox"
+profile="$HOME/.mozilla/firefox/eq7adpzs.nightly"
 bzdeckurl='https://www.bzdeck.com'
 
 echo $bzdeckrul='https://www.bzdeck.com'

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+github_url=$(git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//g' | sed 's/.git$//g')
+branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+
+case "$1" in
+  pr )
+    pr_url=$github_url/compare
+    echo $pr_url
+    firefox $pr_url
+    ;;
+  ghpages )
+    echo TODO
+    ;;
+
+  -h )
+    echo "giturl       The url to the GitHub repo"
+    echo "giturl pr    The url to create a pull request"
+    echo "giturl ghpages    The url to the public gh-pages"
+    ;;
+  * )
+    echo $github_url
+    ;;
+esac

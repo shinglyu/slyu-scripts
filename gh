@@ -5,6 +5,7 @@
 
 BROWSER="firefox"
 
+echo "Starting gh"
 if [ ! $(git rev-parse --is-inside-work-tree) ]
 then
 
@@ -12,9 +13,13 @@ then
   echo "https://github.com"
 
 else # If in a github repo
+  echo "Found git repository"
 
   CURR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
   ORIGIN_URL="$(git config --get remote.origin.url | sed 's/git@/https:\/\//g' | sed 's/com:/com\//g' | sed 's/.git$//g')"
+
+  echo "Current branch: $CURR_BRANCH"
+  echo "Remote: $ORIGIN_URL"
 
   case "$1" in 
   pr) 
