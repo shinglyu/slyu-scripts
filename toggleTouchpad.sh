@@ -1,11 +1,15 @@
-case $(synclient -l |grep TouchpadOff |awk '{print $3}') in
+DEVICE_ID=12 # xinput list
+# xinput list-props ${DEVICE_ID} |grep Enabled |awk '{print $4}'
+case $(xinput list-props ${DEVICE_ID} |grep Enabled |awk '{print $4}') in
     1)
-        synclient TouchpadOff=0
+        xinput disable ${DEVICE_ID}
+        echo "Touchpad disabled"
         ;;
     0)
-        synclient TouchpadOff=1
+        xinput enable ${DEVICE_ID}
+        echo "Touchpad enabled"
         ;;
     *)
-        echo "Touchpad Error"
+        echo "Unknow touchpad state, run 'xinput list-props ${DEVICE_ID}' to check"
         ;;
 esac
