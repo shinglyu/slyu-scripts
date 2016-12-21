@@ -1,8 +1,20 @@
 # Dependency: sox
 eval "$@";
-notify-send "_
-***********************************
-FINISHED: $@
-***********************************"
+# The $? test must follow the eval line, don't put anything in between
+if [ $? -eq 0 ]; then
+  BGCOLOR=green
+  MSG=" finished successfully"
+else
+  BGCOLOR=red
+  MSG=" failed!"
+fi
+
+#notify-send "_
+#***********************************
+#FINISHED: $@
+#***********************************"
+
 #play -q $HOME/slyu-scripts/notify.ogg &
-gxmessage "\"$@\" finished" -fn "helvetica bold 80" -bg yellow --wrap
+#
+echo "${BGCOLOR}"
+gxmessage "\"${@}\" ${MSG}" -fn "helvetica bold 80" -bg "${BGCOLOR}" --wrap
