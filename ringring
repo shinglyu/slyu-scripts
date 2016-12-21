@@ -4,4 +4,5 @@ notify-send "_
 ***********************************
 FINISHED: $@
 ***********************************"
-play -q $HOME/slyu-scripts/notify.ogg &
+#play -q $HOME/slyu-scripts/notify.ogg &
+gxmessage "\"$@\" finished" -fn "helvetica bold 80" -bg yellow --wrap
