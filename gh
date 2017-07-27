@@ -3,7 +3,8 @@
 # Open current commit
 # Create github repo and set it as remote origin
 
-BROWSER="firefox"
+# BROWSER="firefox"
+BROWSER="/home/shinglyu/tools/firefox-dev/firefox"
 
 if [ ! $(git rev-parse --is-inside-work-tree) ]
 then

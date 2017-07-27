@@ -16,5 +16,5 @@ fi
 
 #play -q $HOME/slyu-scripts/notify.ogg &
 #
-echo "${BGCOLOR}"
+# echo "${BGCOLOR}"
 gxmessage "\"${@}\" ${MSG}" -fn "helvetica bold 80" -bg "${BGCOLOR}" --wrap

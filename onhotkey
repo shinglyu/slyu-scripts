@@ -15,9 +15,10 @@ runcmd() {
   #then
     echo ""
     echo ">>>>>" $(date) ">>>>>"
-    #$@
-    ringring $@
+    $@
+    # ringring $@
     echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    # xmessage -timeout 2 "Job Finished!"
     #last_run=$this_run
   #fi
 

@@ -1,5 +1,6 @@
 #!/bin/bash
-fxbin="$HOME/workspace/firefox-nightly-36/firefox"
-profile="$HOME/.mozilla/firefox/vsus34mo.WebIDE"
-$fxbin -Profile $profile --no-remote
+fxbin="$HOME/firefox-nightly/firefox"
+# profile="$HOME/.mozilla/firefox/vsus34mo.WebIDE"
+# $fxbin -Profile $profile --no-remote
+$fxbin --no-remote
 

@@ -1,7 +1,4 @@
 #!/bin/bash
-firefox mail.mozilla.com &
-~/toggleDock.sh
-sleep 30s;
-skype &
-sleep 1m;
-pidgin & 
+~/slyu-scripts/startSynergyClient.sh
+~/tools/franz/Franz-linux-x64-4.0.4/Franz
+
